@@ -13,6 +13,7 @@ public class Produto
       Quantidade = quantidade;
    }
 
+   // talvez esteja errado pois precisa de uma solicitação antes;
    public void AdicionarItem(double quantidade, Funcionario funcionario)
    {
       if (funcionario.Cargo != TipoFuncionario.Almoxarife)
