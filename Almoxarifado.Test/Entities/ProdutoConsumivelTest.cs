@@ -5,36 +5,59 @@ using Xunit;
 
 public class ProdutoConsumivelTest
 {
-   // testando produto valido
-   public static readonly ProdutoConsumivel _produtoConsumivel = new ProdutoConsumivel("item", 200, "descricao", 87);
+   // testando novo produto consumivel
 
-   // [Fact]
-   public void dado_um_novo_produto_consumivel_validade_menor_que_30_nao_deve_ser_adicionada()
+   [Fact]
+   public void dado_um_novo_produto_consumivel_validade_minima_de_30_dias()
    {
-      var produto = new ProdutoConsumivel("item", 200, "descricao", 31);
-      Assert.True(produto.Validade > DateTime.Now.AddDays(30));
+      Assert.Throws<ArgumentException>(() => new ProdutoConsumivel("nome", 100, "descrição", 10))
+         .Message.Equals("Validade minima deve ser de 30 dias");
    }
 
-   // [Fact]
-   public void dado_um_novo_produto_valido_gerar_cod_com_8_caracteres()
-      => Assert.Equal(8, _produtoConsumivel.Codigo.Length);
-
-
-   // [Fact]
-   public void dado_um_novo_produto_valido_gerar_com_0_unidades()
-      => Assert.Equal(0, _produtoConsumivel.Unidades);
+   [Fact]
+   public void dado_um_novo_produto_consumivel_valido_gerar_cod_com_8_caracteres()
+   {
+      var produto = new ProdutoConsumivel("item", 200, "descricao", 54);
+      Assert.Equal(8, produto.Codigo.Length);
+   } 
    
 
    [Fact]
-   public void dado_um_novo_produto_com_valor_menor_ou_igual_a_zero_nao_deve_ser_adicionado()
-      => Assert.True(_produtoConsumivel.Valor > 0);
+   public void dado_um_novo_produto_consumivel_valido_gerar_com_0_unidades()
+   {
+      var produto = new ProdutoConsumivel("item", 200, "descricao", 220);
+      Assert.Equal(0, produto.Unidades);
+   }
    
 
-   // [Fact]
-   public void dado_um_novo_produto_descricao_nao_deve_ser_vazio()
-      => Assert.False(string.IsNullOrEmpty(_produtoConsumivel.Descricao));
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void dado_um_novo_produto_consumivel_com_valor_menor_ou_igual_a_zero_nao_deve_ser_adicionado(double _valor)
+   {
+      Assert.Throws<ArgumentException>(() => new ProdutoConsumivel("item", _valor, "descricao", 60))
+         .Message.Equals("Valor pode ser maior que zero");
+   } 
+   
 
-   // [Fact]
-   public void dado_um_novo_produto_nome_nao_deve_ser_vazio()
-      => Assert.False(string.IsNullOrEmpty(_produtoConsumivel.Nome));
+   [Theory]
+   [InlineData("")]
+   [InlineData(null)]
+   public void dado_um_novo_produto_consumivel_descricao_pode_ser_vazia(string _descricao)
+   {
+      Assert.Throws<ArgumentException>(() => new ProdutoConsumivel("item", 200, _descricao, 128))
+         .Message.Equals("Descrição não pode ser vazia");
+   }
+   
+
+   [Theory]
+   [InlineData("")]
+   [InlineData(null)]
+   public void dado_um_novo_produto_consumivel_nome_nao_deve_ser_vazio(string _nome)
+   {
+      Assert.Throws<ArgumentException>(() => new ProdutoConsumivel(_nome, 200, "descricao", 30))
+         .Message.Equals("Nome não pode ser vazio");
+   }
+
+   // testando produto consumivel
 }

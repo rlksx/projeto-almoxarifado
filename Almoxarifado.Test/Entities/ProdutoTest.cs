@@ -5,7 +5,7 @@ using Xunit;
 
 public class ProdutoTest
 {
-   // testando produto valido
+   // testando novo produto
 
    [Fact]
    public void dado_um_novo_produto_valido_gerar_cod_com_8_caracteres()
@@ -52,5 +52,5 @@ public class ProdutoTest
          .Message.Equals("Nome não pode ser vazio");
    }
 
-   // testando adcionar unidades
+   // testando produto
 }
