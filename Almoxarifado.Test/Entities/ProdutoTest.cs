@@ -6,32 +6,50 @@ using Xunit;
 public class ProdutoTest
 {
    // testando produto valido
-   public static readonly Produto _produto = new Produto("item", 200, "descricao");
 
    [Fact]
    public void dado_um_novo_produto_valido_gerar_cod_com_8_caracteres()
    {
-      Assert.Equal(8, _produto.Codigo.Length);
-   }
+      var produto = new Produto("item", 200, "descricao");
+      Assert.Equal(8, produto.Codigo.Length);
+   } 
+   
 
+   [Fact]
    public void dado_um_novo_produto_valido_gerar_com_0_unidades()
    {
-      Assert.Equal(0, _produto.Unidades);
+      var produto = new Produto("item", 200, "descricao");
+      Assert.Equal(0, produto.Unidades);
    }
+   
 
-   public void dado_um_novo_produto_com_valor_menor_ou_igual_a_zero_nao_deve_ser_adicionado()
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void dado_um_novo_produto_com_valor_menor_ou_igual_a_zero_nao_deve_ser_adicionado(double _valor)
    {
-      Assert.True(_produto.Valor > 0);
+      Assert.Throws<ArgumentException>(() => new Produto("item", _valor, "descricao"))
+         .Message.Equals("Valor pode ser maior que zero");
+   } 
+   
+
+   [Theory]
+   [InlineData("")]
+   [InlineData(null)]
+   public void dado_um_novo_produto_descricao_pode_ser_vazia(string _descricao)
+   {
+      Assert.Throws<ArgumentException>(() => new Produto("item", 200, _descricao))
+         .Message.Equals("Descrição não pode ser vazia");
    }
+   
 
-   public void dado_um_novo_produto_descricao_nao_deve_ser_vazio()
+   [Theory]
+   [InlineData("")]
+   [InlineData(null)]
+   public void dado_um_novo_produto_nome_nao_deve_ser_vazio(string _nome)
    {
-      Assert.False(string.IsNullOrEmpty(_produto.Descricao));
-   }
-
-   public void dado_um_novo_produto_nome_nao_deve_ser_vazio()
-   {
-      Assert.False(string.IsNullOrEmpty(_produto.Nome));
+      Assert.Throws<ArgumentException>(() => new Produto(_nome, 200, "descricao"))
+         .Message.Equals("Nome não pode ser vazio");
    }
 
    // testando adcionar unidades
