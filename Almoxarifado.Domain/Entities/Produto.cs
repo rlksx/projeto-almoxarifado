@@ -1,5 +1,4 @@
 ﻿namespace Almoxarifado.Domain.Entities;
-using Almoxarifado.Domain.Enums;
 
 public class Produto
 {

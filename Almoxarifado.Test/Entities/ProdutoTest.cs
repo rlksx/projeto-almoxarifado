@@ -1,5 +1,4 @@
 namespace Almoxarifado.Test;
-
 using Almoxarifado.Domain.Entities;
 using Xunit;
 

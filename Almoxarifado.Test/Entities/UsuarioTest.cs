@@ -1,5 +1,5 @@
-using Xunit;
 namespace Almoxarifado.Test;
+using Xunit;
 
 public class UsuarioTest
 {

@@ -1,7 +1,7 @@
 namespace Almoxarifado.Test;
 using Xunit;
 
-public class EstoqueTest
+public class Almoxarife
 {
    [Fact]
    public void Test1()
