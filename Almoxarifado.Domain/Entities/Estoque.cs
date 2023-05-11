@@ -1,4 +1,4 @@
-namespace Almoxarifado.Domain;
+namespace Almoxarifado.Domain.Entities;
 
 public class Estoque
 {

@@ -1,13 +1,14 @@
-namespace Almoxarifado.Domain;
+namespace Almoxarifado.Domain.Entities;
+using Almoxarifado.Domain.Enums;
 public class Funcionario
 {
    public string Nome { get; private set; }
-   public string Codigo { get; private set; } = gerarCodigo();
    public TipoFuncionario Cargo { get; private set; }
-   public Funcionario(string nome, string codigo, TipoFuncionario cargo)
+   public string Codigo { get; private set; } = gerarCodigo();
+
+   public Funcionario(string nome, TipoFuncionario cargo)
    {
       Nome = nome;
-      Codigo = codigo;
       Cargo = cargo;
    }
 
