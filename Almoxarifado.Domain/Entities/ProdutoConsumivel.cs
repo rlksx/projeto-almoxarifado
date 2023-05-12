@@ -3,7 +3,7 @@ namespace Almoxarifado.Domain.Entities;
 public class ProdutoConsumivel : Produto
 {
    public DateTime Validade { get; private set; }
-   public bool ProdutoVencido => Validade < DateTime.Now; 
+   public bool ProdutoVencido  => Validade < DateTime.Now; 
 
    public ProdutoConsumivel(string nome, double valor, string descricao, int validadeEmDias) 
    : base(nome, valor, descricao) 

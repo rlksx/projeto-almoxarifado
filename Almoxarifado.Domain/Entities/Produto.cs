@@ -8,6 +8,10 @@ public class Produto
    public double Valor { get; private set; }
    public string Codigo { get; private set; }
 
+   public DateTime DataDeInsercao { get; private set; } = DateTime.UtcNow;
+   public DateTime DataDeAlteracao { get; private set; }
+   public bool Status => true ? false : Unidades > 0;
+
    public Produto(string nome, double valor, string descricao)
    {
       if(String.IsNullOrEmpty(nome)) throw new ArgumentException("Nome não pode ser vazio");
@@ -18,11 +22,8 @@ public class Produto
       Descricao = descricao;
       Valor = valor;
       Codigo = Guid.NewGuid().ToString().Substring(0, 8);
-   }
 
-   // unidades seram adicionadas automaticamente apos o pedido?
-   public void AdicionarUnidades(int unidades) 
-   {
-      
+      DataDeInsercao = DateTime.UtcNow;
+      DataDeAlteracao = DateTime.UtcNow;
    }
 }

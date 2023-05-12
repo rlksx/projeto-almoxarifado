@@ -5,6 +5,26 @@ using Xunit;
 public class ProdutoConsumivelTest
 {
    // testando novo produto consumivel
+   [Fact]
+   public void dado_um_novo_produto_valido_data_de_insercao_deve_ser_igual_a_data_atual()
+   {
+      var produto = new Produto("item", 200, "descricao");
+      Assert.Equal(DateTime.UtcNow.Date, produto.DataDeInsercao.Date);
+   }
+
+   [Fact]
+   public void dado_um_novo_produto_valido_data_de_alteracao_deve_ser_igual_a_data_atual()
+   {
+      var produto = new Produto("item", 200, "descricao");
+      Assert.Equal(DateTime.UtcNow.Date, produto.DataDeAlteracao.Date);
+   }
+
+   [Fact]
+   public void dado_um_novo_produto_valido_status_deve_ser_false()
+   {
+      var produto = new Produto("item", 200, "descricao");
+      Assert.False(produto.Status);
+   }
 
    [Fact]
    public void dado_um_novo_produto_consumivel_validade_minima_de_30_dias()
