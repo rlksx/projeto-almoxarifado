@@ -7,5 +7,11 @@ public class Almoxarife : Funcionario
    {
    }
 
-   // aceitar pedido e bla bla bla
+   public void CadastrarNovoProduto(string nome, double valor, string descricao)
+   {
+   }
+
+   public void AdicionarUnidades(string codigo, int unidades)
+   {
+   }
 }
