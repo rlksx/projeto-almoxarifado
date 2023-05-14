@@ -14,9 +14,9 @@ public class Produto
 
    public Produto(string nome, double valor, string descricao)
    {
-      if(String.IsNullOrEmpty(nome)) throw new ArgumentException("Nome não pode ser vazio");
-      if(valor <= 0) throw new ArgumentException("Valor pode ser maior que zero");
-      if(String.IsNullOrEmpty(descricao)) throw new ArgumentException("Descrição não pode ser vazia");
+      if (String.IsNullOrEmpty(nome)) throw new ArgumentException("Nome não pode ser vazio");
+      if (valor <= 0) throw new ArgumentException("Valor pode ser maior que zero");
+      if (String.IsNullOrEmpty(descricao)) throw new ArgumentException("Descrição não pode ser vazia");
 
       Nome = nome;
       Descricao = descricao;

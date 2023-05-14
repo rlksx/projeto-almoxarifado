@@ -38,8 +38,8 @@ public class ProdutoConsumivelTest
    {
       var produto = new ProdutoConsumivel("item", 200, "descricao", 54);
       Assert.Equal(8, produto.Codigo.Length);
-   } 
-   
+   }
+
 
    [Fact]
    public void dado_um_novo_produto_consumivel_valido_gerar_com_0_unidades()
@@ -47,7 +47,7 @@ public class ProdutoConsumivelTest
       var produto = new ProdutoConsumivel("item", 200, "descricao", 220);
       Assert.Equal(0, produto.Unidades);
    }
-   
+
 
    [Theory]
    [InlineData(0)]
@@ -56,8 +56,8 @@ public class ProdutoConsumivelTest
    {
       Assert.Throws<ArgumentException>(() => new ProdutoConsumivel("item", _valor, "descricao", 60))
          .Message.Equals("Valor pode ser maior que zero");
-   } 
-   
+   }
+
 
    [Theory]
    [InlineData("")]
@@ -67,7 +67,7 @@ public class ProdutoConsumivelTest
       Assert.Throws<ArgumentException>(() => new ProdutoConsumivel("item", 200, _descricao, 128))
          .Message.Equals("Descrição não pode ser vazia");
    }
-   
+
 
    [Theory]
    [InlineData("")]

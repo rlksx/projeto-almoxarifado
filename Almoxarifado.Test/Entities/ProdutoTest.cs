@@ -32,8 +32,8 @@ public class ProdutoTest
    {
       var produto = new Produto("item", 200, "descricao");
       Assert.Equal(8, produto.Codigo.Length);
-   } 
-   
+   }
+
 
    [Fact]
    public void dado_um_novo_produto_valido_gerar_com_0_unidades()
@@ -41,7 +41,7 @@ public class ProdutoTest
       var produto = new Produto("item", 200, "descricao");
       Assert.Equal(0, produto.Unidades);
    }
-   
+
 
    [Theory]
    [InlineData(0)]
@@ -50,8 +50,8 @@ public class ProdutoTest
    {
       Assert.Throws<ArgumentException>(() => new Produto("item", _valor, "descricao"))
          .Message.Equals("Valor pode ser maior que zero");
-   } 
-   
+   }
+
 
    [Theory]
    [InlineData("")]
@@ -61,7 +61,7 @@ public class ProdutoTest
       Assert.Throws<ArgumentException>(() => new Produto("item", 200, _descricao))
          .Message.Equals("Descrição não pode ser vazia");
    }
-   
+
 
    [Theory]
    [InlineData("")]
