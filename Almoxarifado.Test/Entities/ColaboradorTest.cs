@@ -14,5 +14,9 @@ public class ColaboradorTest
    [Fact]
    public void dado_um_colaborador_valido_matricula_deve_ter_8_caracter()
    => Assert.Equal(8, _colaborador.Matricula.Length);
+
+   [Fact]
+   public void dado_um_novo_colaborador_status_deve_ser_ativo()
+      => Assert.True(_colaborador.Status);
    
 }
