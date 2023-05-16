@@ -21,8 +21,34 @@ public class Almoxarife : Funcionario
    public void AdicionarUnidadesDeProduto(Produto produto, int unidades)
    {
       if(produto == null) throw new ArgumentException("Produto invalido");
-      if(unidades <= 0) throw new ArgumentException("Unidades deve ser maior que zero");
+      if(unidades < 0) throw new ArgumentException("Unidades deve ser maior que zero");
       produto.AdicionarUnidades(unidades);
+   }
+
+   public void RemoverUnidadesDeProduto(Produto produto, int unidades)
+   {
+      if(produto == null) throw new ArgumentException("Produto invalido");
+      if(unidades <= 0) throw new ArgumentException("Unidades deve ser maior que zero");
+      if(unidades > produto.Unidades) throw new ArgumentException("Não é possivel remover mais unidades do que existem");
+
+      produto.RemoverUnidades(unidades);
+   }
+
+   
+   public void AdicionarUnidadesDeProduto(ProdutoConsumivel produto, int unidades)
+   {
+      if(produto == null) throw new ArgumentException("Produto invalido");
+      if(unidades < 0) throw new ArgumentException("Unidades deve ser maior que zero");
+      produto.AdicionarUnidades(unidades);
+   }
+
+   public void RemoverUnidadesDeProduto(ProdutoConsumivel produto, int unidades)
+   {
+      if(produto == null) throw new ArgumentException("Produto invalido");
+      if(unidades <= 0) throw new ArgumentException("Unidades deve ser maior que zero");
+      if(unidades > produto.Unidades) throw new ArgumentException("Não é possivel remover mais unidades do que existem");
+
+      produto.RemoverUnidades(unidades);
    }
    
 }

@@ -61,4 +61,48 @@ public class AlmoxarifeTest
       _almoxarife.CadastrarNovoProduto(produto);
       Assert.True(Estoque.Produtos.Count() != 0);
    }
+
+   [Fact]
+   public void ao_remover_unidades_de_produto_produto_deve_ser_valido()
+   {
+      Assert.Throws<ArgumentException>(() => _almoxarife.AdicionarUnidadesDeProduto(null, 100))
+         .Message.Equals("Produto invalido");
+   }
+
+   [Fact]
+   public void ao_adicionar_produto_produto_deve_ser_valido()
+   {
+      Assert.Throws<ArgumentException>(() => _almoxarife.RemoverUnidadesDeProduto(null, 100))
+         .Message.Equals("Produto invalido");
+   }
+
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void ao_adicionar_produto_unidades_deve_ser_maior_que_0(int _unidades)
+   {
+      var produto = new Produto("nome", 123, "descricao");
+      Assert.Throws<ArgumentException>(() => _almoxarife.AdicionarUnidadesDeProduto(produto, _unidades))
+         .Message.Equals("Unidades deve ser maior que zero");
+   }
+
+
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void ao_remover_produto_unidades_deve_ser_maior_que_0(int _unidades)
+   {
+      var produto = new Produto("nome", 123, "descricao");
+      Assert.Throws<ArgumentException>(() => _almoxarife.RemoverUnidadesDeProduto(produto, _unidades))
+         .Message.Equals("Unidades deve ser maior que zero");
+   }
+
+   [Fact]
+   public void ao_remover_unidades_produto_deve_conter_mais_ou_igual_unidades()
+   {
+      var produto = new Produto("nome", 123, "descricao");
+      produto.AdicionarUnidades(10);
+      Assert.Throws<ArgumentException>(() => _almoxarife.RemoverUnidadesDeProduto(produto, 11))
+         .Message.Equals("Não é possivel remover mais unidades do que existem");
+   }
 }
