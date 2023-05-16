@@ -8,8 +8,10 @@ public class Almoxarife : Funcionario
 
    }
 
-   public void CadastrarNovoProduto(string nome, double valor, string descricao)
+   public void CadastrarNovoProduto(Produto produto)
    {
+      var estoque = Estoque.PegarEstoque();
+      estoque.AdicionarProduto(produto);
    }
 
    public void CadastrarNovoColaborador()

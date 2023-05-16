@@ -8,7 +8,6 @@ public class EstoqueTest
    public void dado_um_novo_estoque_deve_gerar_uma_lista_de_produto()
    {
       // instancia singleton
-      var estoque = Estoque.PegarEstoque();
       Assert.NotNull(Estoque.Produtos);
    }
 

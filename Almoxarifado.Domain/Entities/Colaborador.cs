@@ -4,27 +4,12 @@ using Almoxarifado.Domain.Enums;
 
 public class Colaborador : Funcionario
 {
-   public string Matricula { get; private set; }
    public TipoColaborador TipoColaborador { get; private set; }
    public CargoColaborador Cargo { get; private set; }
    public bool Status { get; private set; } = true;
    public Colaborador(string nome, string senha, int telefone, int cpf, TipoColaborador tipoColaborador, CargoColaborador cargo) : base(nome, senha, telefone, cpf)
    {
-      Matricula = GerarMatricula();
       TipoColaborador = tipoColaborador;
       Cargo = cargo;
    }
-
-   private string GerarMatricula()
-   {
-      // string pois é mlr de testar;  
-      string matricula = string.Empty;
-      var rndNumero = new Random();
-      for (int i = 0; i < 8; i++)
-         matricula += rndNumero.Next(0, 9).ToString();
-
-      return matricula;
-   }
-
-   // solicitar pedido
 }
