@@ -1,5 +1,6 @@
 namespace Almoxarifado.Test;
 using Almoxarifado.Domain.Entities;
+using Almoxarifado.Domain.Enums;
 using Xunit;
 
 public class AlmoxarifeTest
@@ -104,5 +105,15 @@ public class AlmoxarifeTest
       produto.AdicionarUnidades(10);
       Assert.Throws<ArgumentException>(() => _almoxarife.RemoverUnidadesDeProduto(produto, 11))
          .Message.Equals("Não é possivel remover mais unidades do que existem");
+   }
+
+   [Fact]
+   public void ao_registrar_novo_colaborador_retornar_o_mesmo()
+   {
+      var novoColaborador = _almoxarife.CadastrarNovoColaborador("nome", "senha", 472423, 0193748925, Domain.Enums.TipoColaborador.Externo, CargoColaborador.Suporte);
+
+      var Colaborador = new Colaborador("nome", "senha", 472423, 0193748925, Domain.Enums.TipoColaborador.Externo, CargoColaborador.Suporte);
+      
+      Object.Equals(novoColaborador, Colaborador);
    }
 }

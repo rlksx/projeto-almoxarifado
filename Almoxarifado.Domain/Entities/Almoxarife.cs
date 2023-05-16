@@ -1,5 +1,6 @@
 namespace Almoxarifado.Domain.Entities;
 using Almoxarifado.Domain.Commons;
+using Almoxarifado.Domain.Enums;
 
 public class Almoxarife : Funcionario
 {
@@ -11,11 +12,6 @@ public class Almoxarife : Funcionario
    {
       var estoque = Estoque.PegarEstoque();
       estoque.AdicionarProduto(produto);
-   }
-
-   public void CadastrarNovoColaborador()
-   {
-
    }
 
    public void AdicionarUnidadesDeProduto(Produto produto, int unidades)
@@ -50,5 +46,10 @@ public class Almoxarife : Funcionario
 
       produto.RemoverUnidades(unidades);
    }
-   
+
+   public Colaborador CadastrarNovoColaborador(string nome, string senha, int telefone, int cpf, TipoColaborador tipoColaborador, CargoColaborador cargo)
+   { 
+      var novoColaborador = new Colaborador(nome, senha, telefone, cpf, tipoColaborador, cargo);
+      return novoColaborador;
+   }
 }
