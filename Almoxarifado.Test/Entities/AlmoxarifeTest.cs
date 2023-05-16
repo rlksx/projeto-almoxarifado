@@ -59,7 +59,9 @@ public class AlmoxarifeTest
    public void almoxarife_cadastrar_novo_produto()
    {
       var produto = new Produto("nome", 123, "descrição");
-      _almoxarife.CadastrarNovoProduto(produto);
+      var pedido = new Pedido("titulo", "descricao", new Colaborador("nome", "senha", 4748327, 817483, TipoColaborador.Externo, CargoColaborador.Suporte), produto);
+      _almoxarife.CadastrarNovoProduto(pedido);
+      
       Assert.True(Estoque.Produtos.Count() != 0);
    }
 
