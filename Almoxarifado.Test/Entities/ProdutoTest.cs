@@ -73,4 +73,20 @@ public class ProdutoTest
    }
 
    // testando produto
+   [Fact]
+   public void ao_adicionar_10_unidades_de_um_produto_deve_haver_10_unidades()
+   {
+      var produto = new Produto("item", 200, "descricao");
+      produto.AdicionarUnidades(10);
+      Assert.Equal(10, produto.Unidades);
+   }
+
+   [Fact]
+   public void ao_remover_5_unidades_de_um_produto_com_10_deve_haver_5_unidades()
+   {
+      var produto = new Produto("item", 200, "descricao");
+      produto.AdicionarUnidades(10);
+      produto.RemoverUnidades(5);
+      Assert.Equal(5, produto.Unidades);
+   }
 }

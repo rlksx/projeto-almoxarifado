@@ -79,4 +79,20 @@ public class ProdutoConsumivelTest
    }
 
    // testando produto consumivel
+   [Fact]
+   public void ao_adicionar_10_unidades_de_um_produto_consumivel_deve_haver_10_unidades()
+   {
+      var produtoConsumivel = new ProdutoConsumivel("item", 200, "descricao", 120);
+      produtoConsumivel.AdicionarUnidades(10);
+      Assert.Equal(10, produtoConsumivel.Unidades);
+   }
+
+   [Fact]
+   public void ao_remover_5_unidades_de_um_produto_consumivel_com_10_deve_haver_5_unidades()
+   {
+      var produtoConsumivel = new ProdutoConsumivel("item", 200, "descricao", 60);
+      produtoConsumivel.AdicionarUnidades(10);
+      produtoConsumivel.RemoverUnidades(5);
+      Assert.Equal(5, produtoConsumivel.Unidades);
+   }
 }

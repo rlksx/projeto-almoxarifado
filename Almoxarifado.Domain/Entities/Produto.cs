@@ -26,4 +26,18 @@ public class Produto
       DataDeInsercao = DateTime.UtcNow;
       DataDeAlteracao = DateTime.UtcNow;
    }
+
+   public void AdicionarUnidades(int unidades)
+   {
+      if(unidades <= 0) throw new ArgumentException("Unidades deve ser maior que zero");
+      Unidades += unidades;
+   }
+
+   public void RemoverUnidades(int unidades)
+   {
+      if(unidades <= 0) throw new ArgumentException("Unidades deve ser maior que zero");
+      if(unidades > Unidades) throw new ArgumentException("Não é possivel remover mais unidades do que existem");
+
+      Unidades -= unidades;
+   }
 }
