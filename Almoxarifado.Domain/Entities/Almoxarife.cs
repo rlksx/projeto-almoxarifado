@@ -18,10 +18,11 @@ public class Almoxarife : Funcionario
 
    }
 
-   public void AdicionarUnidades(Produto produto, int unidades)
+   public void AdicionarUnidadesDeProduto(Produto produto, int unidades)
    {
       if(produto == null) throw new ArgumentException("Produto invalido");
       if(unidades <= 0) throw new ArgumentException("Unidades deve ser maior que zero");
       produto.AdicionarUnidades(unidades);
    }
+   
 }

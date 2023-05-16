@@ -79,6 +79,36 @@ public class ProdutoConsumivelTest
    }
 
    // testando produto consumivel
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void ao_adicionar_unidades_de_produto_unidades_deve_ser_maior_que_0(int _unidades)
+   {
+      var produtoConsumivel = new ProdutoConsumivel("item", 200, "descricao", 120);
+      Assert.Throws<ArgumentException>(() => produtoConsumivel.AdicionarUnidades(_unidades))
+         .Message.Equals("Unidades deve ser maior que zero");
+   }
+
+   [Fact]
+   public void ao_remover_unidades_de_produto_produto_deve_ter_mais_ou_igual_unidades()
+   {
+      var produtoConsumivel = new ProdutoConsumivel("item", 200, "descricao", 120);
+      produtoConsumivel.AdicionarUnidades(10);
+      Assert.Throws<ArgumentException>(() => produtoConsumivel.RemoverUnidades(11))
+         .Message.Equals("Produto não tem unidades suficientes");
+   }
+
+
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void ao_remover_unidades_unidades_deve_ver_maior_que_0(int _unidades)
+   {
+      var produto = new ProdutoConsumivel("item", 200, "descricao", 120);
+      Assert.Throws<ArgumentException>(() => produto.RemoverUnidades(_unidades))
+         .Message.Equals("Unidades deve ser maior que zero");
+   }
+
    [Fact]
    public void ao_adicionar_10_unidades_de_um_produto_consumivel_deve_haver_10_unidades()
    {

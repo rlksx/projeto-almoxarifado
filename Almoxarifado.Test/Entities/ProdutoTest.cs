@@ -49,7 +49,7 @@ public class ProdutoTest
    public void dado_um_novo_produto_com_valor_menor_ou_igual_a_zero_nao_deve_ser_adicionado(double _valor)
    {
       Assert.Throws<ArgumentException>(() => new Produto("item", _valor, "descricao"))
-         .Message.Equals("Valor pode ser maior que zero");
+         .Message.Equals("Valor deve ser maior que zero");
    }
 
 
@@ -88,5 +88,35 @@ public class ProdutoTest
       produto.AdicionarUnidades(10);
       produto.RemoverUnidades(5);
       Assert.Equal(5, produto.Unidades);
+   }
+
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void ao_adicionar_unidades_de_produto_unidades_deve_ser_maior_que_0(int _unidades)
+   {
+      var produto = new Produto("item", 200, "descricao");
+      Assert.Throws<ArgumentException>(() => produto.AdicionarUnidades(_unidades))
+         .Message.Equals("Unidades deve ser maior que zero");
+   }
+
+   [Fact]
+   public void ao_remover_unidades_de_produto_produto_deve_ter_mais_ou_igual_unidades()
+   {
+      var produto = new Produto("item", 200, "descricao");
+      produto.AdicionarUnidades(10);
+      Assert.Throws<ArgumentException>(() => produto.RemoverUnidades(11))
+         .Message.Equals("Produto não tem unidades suficientes");
+   }
+
+
+   [Theory]
+   [InlineData(0)]
+   [InlineData(-1)]
+   public void ao_remover_unidades_unidades_deve_ver_maior_que_0(int _unidades)
+   {
+      var produto = new Produto("item", 200, "descricao");
+      Assert.Throws<ArgumentException>(() => produto.RemoverUnidades(_unidades))
+         .Message.Equals("Unidades deve ser maior que zero");
    }
 }
