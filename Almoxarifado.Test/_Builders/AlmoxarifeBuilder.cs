@@ -20,7 +20,7 @@ public class AlmoxarifeBuilder
    public AlmoxarifeBuilder ComNome(string nome)
        => this._nome = nome;
 
-j   public AlmoxarifeBuilder ComSenha(string senha)
+   public AlmoxarifeBuilder ComSenha(string senha)
        => this._senha = senha;
 
    public AlmoxarifadoBuilder ComTelefone(int telefone)
