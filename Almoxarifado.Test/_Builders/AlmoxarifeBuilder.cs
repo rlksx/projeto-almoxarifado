@@ -11,24 +11,24 @@ public class AlmoxarifeBuilder
    private string _matricula = "012D2B321A";
 
 
-    public static AlmoxarifeBuilder Novo()
-        => new AlmoxarifeBuilder();
+   public static AlmoxarifeBuilder Novo()
+       => new AlmoxarifeBuilder();
 
-    public Almoxarife Criar()
-        => new Almoxarifado(_nome, _senha, _telefone, _cpf);
+   public Almoxarife Criar()
+       => new Almoxarife(_nome, _senha, _telefone, _cpf);
 
-    public AlmoxarifeBuilder ComNome(string nome)
-        => this._nome= nome;
+   public AlmoxarifeBuilder ComNome(string nome)
+       => this._nome = nome;
 
-    public AlmoxarifeBuilder ComSenha(string senha)
-        => this._senha = senha;
+j   public AlmoxarifeBuilder ComSenha(string senha)
+       => this._senha = senha;
 
-    public Almoxarifado ComTelefone(int telefone)
-        => this._telefone = telefone;
+   public AlmoxarifadoBuilder ComTelefone(int telefone)
+       => this._telefone = telefone;
 
-    public Almoxarifado ComCpf(int cpf)
-        => this._cpf = cpf;
-    
-    public Almoxarifado ComMatricula(string matricula)
-        => this._matricula = matricula;
+   public AlmoxarifeBuilder ComCpf(int cpf)
+       => this._cpf = cpf;
+
+   public AlmoxarifeBuilder ComMatricula(string matricula)
+       => this._matricula = matricula;
 }
