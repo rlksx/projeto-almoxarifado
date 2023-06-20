@@ -5,7 +5,11 @@ using Xunit;
 
 public class AlmoxarifeTest
 {
-   private static readonly Almoxarife _almoxarife = new Almoxarife("nome", "senha", 470000, 020302);
+   private static Almoxarife _almoxarife;
+
+   public AlmoxarifeTest()
+      =>  _almoxarife = new Almoxarife("nome", "senha", 470000, 020302);
+   
 
    [Theory]
    [InlineData(0)]

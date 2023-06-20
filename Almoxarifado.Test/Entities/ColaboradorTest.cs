@@ -5,7 +5,10 @@ using Xunit;
 
 public class ColaboradorTest
 {
-   private static readonly Colaborador _colaborador = new Colaborador("nome", "senha", 470000, 020302, TipoColaborador.Interno, CargoColaborador.Suporte);
+   private static Colaborador _colaborador;
+
+   public ColaboradorTest()
+      => _colaborador = new Colaborador("nome", "senha", 470000, 020302, TipoColaborador.Interno, CargoColaborador.Suporte);
 
    [Theory]
    [InlineData(0)]

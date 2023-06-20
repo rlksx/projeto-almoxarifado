@@ -6,8 +6,15 @@ using Xunit;
 
 public class PedidoTest
 {
-   private static readonly Colaborador _colaborador = new Colaborador("nome", "1413412", 47000, 1231221321, TipoColaborador.Interno, CargoColaborador.Suporte);
-   private static readonly Produto _produto = new Produto("item", 200, "descricao");
+   private static Colaborador _colaborador;
+   private static Produto _produto;
+
+   public PedidoTest()
+   {
+      _produto = new Produto("item", 200, "descricao");
+      
+      _colaborador = new Colaborador("nome", "1413412", 47000, 1231221321, TipoColaborador.Interno, CargoColaborador.Suporte);
+   }
 
    [Theory]
    [InlineData("")]
