@@ -1,6 +1,7 @@
 
 namespace Almoxarifado.Test._Builders;
 using Almoxarifado.Domain.Entities;
+using Almoxarifado.Domain.Enums;
 
 public class ColaboradorBuilder
 {
@@ -9,26 +10,62 @@ public class ColaboradorBuilder
    private int _telefone = 47991522;
    private int _cpf = 48294482;
    private string _matricula = "012D2B321A";
+   private TipoColaborador _tipoColaborador = TipoColaborador.Interno;
+   private CargoColaborador _cargoColaborador = CargoColaborador.Gerente;
 
 
     public static ColaboradorBuilder Novo()
         => new ColaboradorBuilder();
 
     public Colaborador Criar()
-        => new Almoxarifado(_nome, _senha, _telefone, _cpf);
+        => new Colaborador(_nome, _senha, _telefone, _cpf, _tipoColaborador, _cargoColaborador);
 
     public ColaboradorBuilder ComNome(string nome)
-        => this._nome= nome;
+    {
+        this._nome = nome;
+
+        return this;
+    }
 
     public ColaboradorBuilder ComSenha(string senha)
-        => this._senha = senha;
+    {
+        this._senha = senha;
 
-    public Almoxarifado ComTelefone(int telefone)
-        => this._telefone = telefone;
+        return this;
+    }
 
-    public Almoxarifado ComCpf(int cpf)
-        => this._cpf = cpf;
+    public ColaboradorBuilder ComTelefone(int telefone)
+    {
+        this._telefone = telefone;
+
+        return this;
+    }
+
+    public ColaboradorBuilder ComCpf(int cpf)
+    {
+        this._cpf = cpf;
+
+        return this;
+    }
     
-    public Almoxarifado ComMatricula(string matricula)
-        => this._matricula = matricula;
+    public ColaboradorBuilder ComMatricula(string matricula)
+    {
+        this._matricula = matricula;
+
+        return this;
+    }
+
+    public ColaboradorBuilder ComTipoColaborador(CargoColaborador cargoColaborador)
+    {
+        this._cargoColaborador = cargoColaborador;
+
+        return this;
+    }
+
+    public ColaboradorBuilder ComCargoColaborador(CargoColaborador cargoColaborador)
+    {
+        this._cargoColaborador = cargoColaborador;
+
+        return this;
+    }
 }
