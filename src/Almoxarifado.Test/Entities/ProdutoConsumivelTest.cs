@@ -1,7 +1,5 @@
 namespace Almoxarifado.Test;
 
-using Almoxarifado.Domain.Entities;
-
 public class ProdutoConsumivelTest
 {
    // testando novo produto consumivel

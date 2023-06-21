@@ -1,5 +1,4 @@
 namespace Almoxarifado.Test._Builders;
-using Almoxarifado.Domain.Entities;
 
 public class ProdutoBuilder
 {

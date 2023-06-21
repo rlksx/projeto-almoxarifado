@@ -1,8 +1,5 @@
 namespace Almoxarifado.Test;
 
-using Almoxarifado.Domain.Entities;
-using Almoxarifado.Domain.Enums;
-
 public class ColaboradorTest
 {
    private static Colaborador? _colaborador;

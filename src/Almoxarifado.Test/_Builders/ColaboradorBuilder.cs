@@ -1,8 +1,4 @@
-
 namespace Almoxarifado.Test._Builders;
-
-using Almoxarifado.Domain.Entities;
-using Almoxarifado.Domain.Enums;
 
 public class ColaboradorBuilder
 {
