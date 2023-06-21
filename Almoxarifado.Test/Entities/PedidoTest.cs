@@ -2,17 +2,16 @@ namespace Almoxarifado.Test;
 
 using Almoxarifado.Domain.Entities;
 using Almoxarifado.Domain.Enums;
-using Xunit;
 
 public class PedidoTest
 {
-   private static Colaborador _colaborador;
-   private static Produto _produto;
+   private static Colaborador? _colaborador;
+   private static Produto? _produto;
 
    public PedidoTest()
    {
       _produto = new Produto("item", 200, "descricao");
-      
+
       _colaborador = new Colaborador("nome", "1413412", 47000, 1231221321, TipoColaborador.Interno, CargoColaborador.Suporte);
    }
 
