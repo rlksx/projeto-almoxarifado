@@ -2,42 +2,42 @@ namespace Almoxarifado.Test._Builders;
 
 public class PedidoBuilder
 {
-   private string _titulo = "Pedido de teste";
-   private string _descricao = "Pedido de teste";
-   private Colaborador _autor = ColaboradorBuilder.Novo().Criar();
-   private Produto _produto = ProdutoBuilder.Novo().Criar();
+    private string _titulo = "Pedido de teste";
+    private string _descricao = "Pedido de teste";
+    private Colaborador _autor = ColaboradorBuilder.Novo().Criar();
+    private Produto _produto = ProdutoBuilder.Novo().Criar();
 
-   public static PedidoBuilder Novo()
-       => new PedidoBuilder();
+    public static PedidoBuilder Novo()
+        => new PedidoBuilder();
 
-   public Pedido Criar()
-       => new Pedido(_titulo, _descricao, _autor, _produto);
+    public Pedido Criar()
+        => new Pedido(_titulo, _descricao, _autor, _produto);
 
-   public PedidoBuilder ComTitulo(string titulo)
-   {
-      _titulo = titulo;
-      
-      return this;
-   }
+    public PedidoBuilder ComTitulo(string titulo)
+    {
+        _titulo = titulo;
 
-   public PedidoBuilder ComDescricao(string descricao)
-   {
-      _descricao = descricao;
+        return this;
+    }
 
-      return this;
-   }
+    public PedidoBuilder ComDescricao(string descricao)
+    {
+        _descricao = descricao;
 
-   public PedidoBuilder ComAutor(Colaborador autor)
-   {
-      _autor = autor;
+        return this;
+    }
 
-      return this;
-   }
+    public PedidoBuilder ComAutor(Colaborador autor)
+    {
+        _autor = autor;
 
-   public PedidoBuilder ComProduto(Produto produto)
-   {
-      _produto = produto;
+        return this;
+    }
 
-      return this;
-   }
+    public PedidoBuilder ComProduto(Produto produto)
+    {
+        _produto = produto;
+
+        return this;
+    }
 }
