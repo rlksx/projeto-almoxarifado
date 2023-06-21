@@ -1,6 +1,4 @@
-
 namespace Almoxarifado.Test._Builders;
-
 using Almoxarifado.Domain.Entities;
 
 public class ProdutoBuilder
@@ -34,5 +32,5 @@ public class ProdutoBuilder
         _descricao = descricao;
 
         return this;
-     }
+    }
 }

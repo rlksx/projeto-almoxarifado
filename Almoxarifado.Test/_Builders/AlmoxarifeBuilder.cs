@@ -18,18 +18,38 @@ public class AlmoxarifeBuilder
    public Almoxarife Criar()
        => new Almoxarife(_nome, _senha, _telefone, _cpf);
 
-   public string ComNome(string nome)
-       => this._nome = nome;
+   public AlmoxarifeBuilder ComNome(string nome)
+   {
+      _nome = nome;
+      
+      return this;
+   }
 
-   public string ComSenha(string senha)
-       => this._senha = senha;
+   public AlmoxarifeBuilder ComSenha(string senha)
+   {
+      _senha = senha;
 
-   public int ComTelefone(int telefone)
-       => this._telefone = telefone;
+      return this;
+   }
 
-   public int ComCpf(int cpf)
-       => this._cpf = cpf;
+   public AlmoxarifeBuilder ComTelefone(int telefone)
+   {
+      _telefone = telefone;
 
-   public string ComMatricula(string matricula)
-       => this._matricula = matricula;
+      return this;
+   }
+
+   public AlmoxarifeBuilder ComCpf(int cpf)
+   {
+        _cpf = cpf;
+
+        return this;
+   }
+
+   public AlmoxarifeBuilder ComMatricula(string matricula)
+    {
+        _matricula = matricula;
+
+        return this;
+    }
 }
