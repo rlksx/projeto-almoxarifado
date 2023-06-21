@@ -3,10 +3,14 @@ namespace Almoxarifado.Test;
 public class ProdutoConsumivelTest
 {
     // testando novo produto consumivel
+    private static ProdutoConsumivel _produtoConsumivel;
+    public ProdutoConsumivelTest()
+        => _produtoConsumivel = ProdutoConsumivelBuilder.Novo().Criar();
+
     [Fact]
     public void dado_um_novo_produto_valido_data_de_insercao_deve_ser_igual_a_data_atual()
     {
-        var produto = new Produto("item", 200, "descricao");
+        var produto = ProdutoConsumivelBuilder.Novo().Criar();
         Assert.Equal(DateTime.UtcNow.Date, produto.DataDeInsercao.Date);
     }
 
