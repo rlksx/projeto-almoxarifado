@@ -13,7 +13,7 @@ public class EstoqueTest
    public void dado_um_estoque_existente_deve_retornar_o_mesmo_estoque()
    {
       var estoque = Estoque.PegarEstoque();
-      estoque.AdicionarProduto(new Produto("Produto 1", 10, "Descrição 1"));
+      estoque.AdicionarProduto(ProdutoBuilder.Novo().Criar());
 
       var estoque2 = Estoque.PegarEstoque();
       Assert.Equal(estoque, estoque2);
