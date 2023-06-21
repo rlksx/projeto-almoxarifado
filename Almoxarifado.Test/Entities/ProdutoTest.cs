@@ -1,6 +1,6 @@
 namespace Almoxarifado.Test;
+
 using Almoxarifado.Domain.Entities;
-using Xunit;
 
 public class ProdutoTest
 {

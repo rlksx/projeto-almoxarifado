@@ -1,11 +1,11 @@
 namespace Almoxarifado.Test;
+
 using Almoxarifado.Domain.Entities;
 using Almoxarifado.Domain.Enums;
-using Xunit;
 
 public class ColaboradorTest
 {
-   private static Colaborador _colaborador;
+   private static Colaborador? _colaborador;
 
    public ColaboradorTest()
       => _colaborador = new Colaborador("nome", "senha", 470000, 020302, TipoColaborador.Interno, CargoColaborador.Suporte);
