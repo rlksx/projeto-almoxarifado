@@ -19,49 +19,49 @@ public class ColaboradorBuilder
 
     public ColaboradorBuilder ComNome(string nome)
     {
-        this._nome = nome;
+        _nome = nome;
 
         return this;
     }
 
     public ColaboradorBuilder ComSenha(string senha)
     {
-        this._senha = senha;
+        _senha = senha;
 
         return this;
     }
 
     public ColaboradorBuilder ComTelefone(int telefone)
     {
-        this._telefone = telefone;
+        _telefone = telefone;
 
         return this;
     }
 
     public ColaboradorBuilder ComCpf(int cpf)
     {
-        this._cpf = cpf;
+        _cpf = cpf;
 
         return this;
     }
 
     public ColaboradorBuilder ComMatricula(string matricula)
     {
-        this._matricula = matricula;
+        _matricula = matricula;
 
         return this;
     }
 
     public ColaboradorBuilder ComTipoColaborador(CargoColaborador cargoColaborador)
     {
-        this._cargoColaborador = cargoColaborador;
+        _cargoColaborador = cargoColaborador;
 
         return this;
     }
 
     public ColaboradorBuilder ComCargoColaborador(CargoColaborador cargoColaborador)
     {
-        this._cargoColaborador = cargoColaborador;
+        _cargoColaborador = cargoColaborador;
 
         return this;
     }
