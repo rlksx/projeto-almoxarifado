@@ -36,8 +36,8 @@ public class ProdutoConsumivelBuilder
 
     public ProdutoConsumivelBuilder ComValidade(int validade)
     {
-      _validadeEmDias = validade;
+        _validadeEmDias = validade;
 
-      return this;
+        return this;
     }
 }

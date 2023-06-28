@@ -10,17 +10,17 @@ public class ProdutoConsumivelTest
     [Fact]
     public void dado_um_novo_produto_valido_data_de_insercao_deve_ser_igual_a_data_atual()
         => Assert.Equal(DateTime.UtcNow.Date, _produtoConsumivel.DataDeInsercao.Date);
-    
+
 
     [Fact]
     public void dado_um_novo_produto_valido_data_de_alteracao_deve_ser_igual_a_data_atual()
         => Assert.Equal(DateTime.UtcNow.Date, _produtoConsumivel.DataDeAlteracao.Date);
-    
+
 
     [Fact]
     public void dado_um_novo_produto_valido_status_deve_ser_false()
         => Assert.False(_produtoConsumivel.Status);
-    
+
 
     [Fact]
     public void dado_um_novo_produto_consumivel_validade_minima_de_30_dias()
@@ -32,13 +32,13 @@ public class ProdutoConsumivelTest
     [Fact]
     public void dado_um_novo_produto_consumivel_valido_gerar_cod_com_8_caracteres()
         => Assert.Equal(8, _produtoConsumivel.Codigo.Length);
-    
+
 
 
     [Fact]
     public void dado_um_novo_produto_consumivel_valido_gerar_com_0_unidades()
         => Assert.Equal(0, _produtoConsumivel.Unidades);
-    
+
 
 
     [Theory]

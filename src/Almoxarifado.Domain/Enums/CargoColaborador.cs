@@ -2,8 +2,8 @@ namespace Almoxarifado.Domain.Enums;
 
 public enum CargoColaborador
 {
-   Gerente,
-   Tecnico,
-   Auxiliar,
-   Suporte,
+    Gerente,
+    Tecnico,
+    Auxiliar,
+    Suporte,
 }

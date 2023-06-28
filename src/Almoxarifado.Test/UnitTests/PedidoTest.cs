@@ -38,5 +38,5 @@ public class PedidoTest
     [Fact]
     public void dado_uma_nova_solicitacao_status_deve_ser_false()
         => Assert.Equal(false, PedidoBuilder.Novo().Criar().Status);
-    
+
 }

@@ -39,7 +39,7 @@ public class ColaboradorTest
     [InlineData(null)]
     public void dado_um_novo_colaborador_nome_nao_deve_ser_vazia(string _nome)
     {
-        Assert.Throws<ArgumentException>(() =>  ColaboradorBuilder.Novo().ComNome(_nome).Criar())
+        Assert.Throws<ArgumentException>(() => ColaboradorBuilder.Novo().ComNome(_nome).Criar())
             .Message.Equals("Nome invalido");
     }
 
